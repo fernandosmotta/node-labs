@@ -17,27 +17,86 @@ let produtos = [
 
 let nextId = 6;
 
+
+// Listar todos os produtos 
 app.get('/produtos', (req, res) => {
-    res.json(produtos, 200);
+    return res.status(200).send(produtos);
 });
 
+
+// Obter um produto pelo ID
+app.get('/produtos/:id', (req, res) => {
+    const produto_id = parseInt(req.params.id);
+
+    const produto = produtos.find(prod => prod.id === produto_id)
+
+    if (!produto)
+        return res.status(400).json({mensagem: "Produto não foi localizado"});
+
+    return res.status(200).send(produto);
+});
+
+
+// Cadastrar um novo produto
 app.post('/produtos', (req, res) => {
-    nextId++;
-    
+    const {nome, preco} = req.body;
+
+    if(!nome || !preco) {
+        return res.status(400).send({mensagem: "O nome e o preço são obrigatórios"})
+    }
+
     const novoProduto = {
-        id: nextId,
-        nome: req.body.nome,
-        preco: req.body.preco
+        id: nextId++,
+        nome,
+        preco
     }
 
     produtos.push(novoProduto);
-    res.status(201).json(novoProduto);  
+
+    return res.status(201).send({mensagem: 'Produto CADASTRADO com sucesso', produto: novoProduto});
 });
 
+
+// Atualizar um produto existente
 app.put('/produtos/:id', (req, res) => {
-    const produto_id = parseInt(req.params.id);
+    const produto_id    = parseInt(req.params.id);
+    const {nome, preco} = req.body;
+
+    if (!nome || !preco) 
+        return res.status(400).send({mensagem: "Nome e o preço são obrigatórios"});
     
+    
+    // busca o produto pelo seu ID
+    const index = produtos.findIndex(prod => prod.id === produto_id)
+
+    if (index === -1)
+        return res.status(400).json({mensagem: "Produto não foi localizado"});
+
+    produtos[index] = {
+        id: produto_id,
+        nome: nome,
+        preco: preco
+    }
+
+    return res.status(200).json({mensagem: 'Produto ATUALIZADO com sucesso', produto: produtos[index]});
 });
+
+
+// Remover um produto pelo ID
+app.delete('/produtos/:id', (req, res) => {
+    const produto_id     = parseInt(req.params.id);
+    const tamanhoInicial = produtos.length; // Obter o tamanho do array
+
+    // Filtrar o array, mantendo os produtos diferentes do ID recebido
+    produtos = produtos.filter(produtoAtual => produtoAtual.id !== produto_id);
+
+    if (produtos.length === tamanhoInicial) {
+        return res.status(400).send({mensagem: "Produto não foi localizado"});
+    }
+
+    return res.status(204).send();
+});
+
 
 
 // Iniciar o servidor
