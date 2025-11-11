@@ -1,7 +1,14 @@
 const express = require('express');
+const cors    = require('cors');
 const app     = express();
 const port    = 3000;
 
+
+// Permitir requisições externas - (Permissão para todas as origens)
+//app.use(cors()); 
+
+// Permitir requisições externas - (Permissão espefificas)
+app.use( cors({origin: 'http://127.0.0.1:5500'}) );
 
 // Configurar o Express para aceitar JSON no corpo das requisições
 app.use(express.json());
@@ -12,7 +19,7 @@ let produtos = [
     { id: 2, nome: 'Samsung S20', preco: 1.800 },
     { id: 3, nome: 'Xiaomi Mi 10', preco: 1.500 },
     { id: 4, nome: 'Notebook Dell Inspiron 15', preco: 3.200 },
-    { id: 5, nome: 'Monitor LG 24"', preco: 690 },
+    { id: 5, nome: 'Monitor LG 24', preco: 690 },
 ];
 
 let nextId = 6;
