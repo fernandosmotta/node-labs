@@ -16,8 +16,13 @@ npm install cors
 pgAdmin - Gerenciador do PostgreSQL
 
 
+# Instalar as bibliotecas para a api-financeiro
+npm install express cors nodemon pg pg-hstore bcryptjs dotenv sequelize jsonwebtoken 
 
---------------------------------------------------------------------------------
+
+
+
+-----------------------------------------------------------------------------------------------
 https://statics.teams.cdn.office.net/evergreen-assets/safelinks/2/atp-safelinks.html
 
 https://github.com/lucasbarzan/gobarber
@@ -28,7 +33,7 @@ create table usuarios(
 	id SERIAL primary key,
 	nome varchar(255),
 	email varchar(255) unique,
-	senha varchar(255),	
+	senha varchar(255)
 );
 
 create table financeiros(
@@ -41,3 +46,6 @@ create table financeiros(
 );
 
 insert usuarios (nome, email, senha) values ("Fernando Soares", "fernando.smotta@gmail.com", "123456");
+
+
+
