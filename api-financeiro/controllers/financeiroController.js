@@ -5,8 +5,11 @@ const { Financeiro } = require("../models")
 // método para ser chamado pelo GET
 exports.listar = async (req, res) => {
 
+    // Essa variavel vem do middleware (authMiddleware)
+    const usuarioIdJWT = req.usuarioId; 
+
     try{
-        const registros = await Financeiro.findAll()
+        const registros = await Financeiro.findAll({where: {usuarioId: usuarioIdJWT}})
         res.json(registros)
 
     }catch (ex){
@@ -16,8 +19,17 @@ exports.listar = async (req, res) => {
 
 // método para ser chamado pelo POST
 exports.criar = async (req, res) => {
+    // Essa variavel vem do middleware (authMiddleware)
+    const usuarioIdJWT = req.usuarioId; 
+
     try{
-        const registro = await Financeiro.create(req.body)
+        // Montar o objeto que será criado no banco
+        const dados = {
+            ...req.body,
+            usuarioId: usuarioIdJWT
+        }
+
+        const registro = await Financeiro.create(dados)
         res.status(201).json(registro)
     } catch (listaDeErros) {
         if (listaDeErros.name === 'SequelizeValidationError'){
