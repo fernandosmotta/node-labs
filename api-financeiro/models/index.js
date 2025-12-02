@@ -6,6 +6,8 @@ const conexaoBanco = require("../config/database")
 const Financeiro = require("./financeiro")(conexaoBanco)
 // Importa o model usuario
 const Usuario = require("./usuario")(conexaoBanco)
+// Importa o model categoria
+const Categoria = require("./categoria")(conexaoBanco)
 
 // Usuario tem muitos financeiros
 // O financeiro pertence a um único usuário
@@ -18,5 +20,11 @@ Usuario.hasMany(Financeiro, { foreignKey: 'usuarioId' })
 // Cada lançamento financeiro pertence a um único usuário (belongsTo)
 Financeiro.belongsTo(Usuario, { foreignKey: 'usuarioId' })
 
+// Uma categoria pode ter muitos registros financeiros (hasMany)
+Categoria.hasMany(Financeiro, { foreignKey: 'categoriaId' })
 
-module.exports = { conexaoBanco, Usuario, Financeiro }
+// Cada lançamento financeiro pertence a uma única categoria
+Financeiro.belongsTo(Categoria, {foreignKey: "categoriaId"})
+
+
+module.exports = { conexaoBanco, Usuario, Financeiro, Categoria }

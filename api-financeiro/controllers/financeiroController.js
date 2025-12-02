@@ -4,12 +4,8 @@ const { Financeiro } = require("../models")
 
 // método para ser chamado pelo GET
 exports.listar = async (req, res) => {
-
-    // Essa variavel vem do middleware (authMiddleware)
-    const usuarioIdJWT = req.usuarioId; 
-
     try{
-        const registros = await Financeiro.findAll({where: {usuarioId: usuarioIdJWT}})
+        const registros = await Financeiro.findAll()
         res.json(registros)
 
     }catch (ex){
