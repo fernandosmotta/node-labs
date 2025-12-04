@@ -27,4 +27,4 @@ Categoria.hasMany(Financeiro, { foreignKey: 'categoriaId' })
 Financeiro.belongsTo(Categoria, {foreignKey: "categoriaId"})
 
 
-module.exports = { conexaoBanco, Usuario, Financeiro, Categoria }
+module.exports = { conexaoBanco, Usuario, Categoria, Financeiro }

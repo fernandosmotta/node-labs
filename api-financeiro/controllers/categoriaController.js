@@ -1,10 +1,8 @@
 const { Categoria } = require("../models")
 
 exports.listar = async (req, res) => {
-    const usuarioIdJWT = req.usuarioId;
-
     try {
-        const registros = await Categoria.findAll({where: {usuarioId: usuarioIdJWT}})
+        const registros = await Categoria.findAll()
         res.json(registros)
     } catch (e) {
         res.status(500).json({erro: "Não foi possível listas as categorias"})

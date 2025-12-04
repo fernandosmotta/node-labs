@@ -1,7 +1,8 @@
 // Modelo ou Entidade
 // ORM - Object-Relational Mapping (Mapeamento de Objeto relacional)
 
-const { DataTypes } = require("sequelize")
+const { DataTypes } = require("sequelize");
+const { Categoria } = require(".");
 
 module.exports = (conexaoBanco) => {
 
@@ -53,6 +54,14 @@ module.exports = (conexaoBanco) => {
                 },
             },
         },
+        categoriaId: {
+            type: DataTypes.INTEGER,
+            allowNull: false,
+            references: {
+                model: 'categorias',
+                key: 'id'
+            }
+        }
     },{
         tableName: "financeiro",    // Força o nome da tabela
         freezeTableName: true,      // Impede a pluralização 

@@ -1,17 +1,31 @@
 
 // executar também o arquivo index.js
-const { Financeiro } = require("../models")
+const { Model } = require("sequelize");
+const { Financeiro, Categoria } = require("../models")
 
 // método para ser chamado pelo GET
 exports.listar = async (req, res) => {
-    try{
-        const registros = await Financeiro.findAll()
+    const usuarioIdJWT = req.usuarioId;
+
+    try {
+        
+        const registros = await Financeiro.findAll({
+            where: { usuarioId: usuarioIdJWT },
+            include: [{
+                model: Categoria,
+                attributes: ['id', 'nome', 'descricao']
+            }]
+        });
+
         res.json(registros)
 
-    }catch (ex){
+    } catch (ex) {
         res.status(500).json({ erro: "Não foi possível listar os registros" })
     }
 }
+
+
+
 
 // método para ser chamado pelo POST
 exports.criar = async (req, res) => {

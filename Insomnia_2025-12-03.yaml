@@ -1,0 +1,495 @@
+type: collection.insomnia.rest/5.0
+schema_version: "5.1"
+name: Scratch Pad
+meta:
+  id: wrk_scratchpad
+  created: 1759797013324
+  modified: 1759797013324
+  description: ""
+collection:
+  - name: Tarefas
+    meta:
+      id: fld_da0ef6b6fa6b40d9ba6a439533ac2f2e
+      created: 1759797249701
+      modified: 1762217596732
+      sortKey: -1759797249701
+      description: ""
+    children:
+      - url: http://limeiraweb.com.br/api/tarefas
+        name: Lista de Tarefas
+        meta:
+          id: req_b84429269c334bc9a297e000ee2c8bf7
+          created: 1759797338987
+          modified: 1759797633644
+          isPrivate: false
+          description: ""
+          sortKey: -1759797338987
+        method: GET
+        headers:
+          - name: User-Agent
+            value: insomnia/11.4.0
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://limeiraweb.com.br/api/tarefas
+        name: Inserir Tarefas
+        meta:
+          id: req_71dcc1d06afa43799ae5d477a2ebc35d
+          created: 1759798060948
+          modified: 1759798191303
+          isPrivate: false
+          description: ""
+          sortKey: -1759797338937
+        method: POST
+        body:
+          mimeType: application/json
+          text: |-
+            {
+            	"nome": "Tarefa de Teste",
+            	"status": "novo"
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/11.4.0
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://limeiraweb.com.br/api/tarefas/27
+        name: Alterar Tarefas
+        meta:
+          id: req_d519f2decf6f4c3f9efa5af5e6973357
+          created: 1759798842280
+          modified: 1759798935730
+          isPrivate: false
+          description: ""
+          sortKey: -1759797338887
+        method: PUT
+        body:
+          mimeType: application/json
+          text: |-
+            {
+            	"nome": "Tarefa de Teste (alterado)",
+            	"status": "novo"
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/11.4.0
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://limeiraweb.com.br/api/tarefas/27
+        name: Deletar Tarefas
+        meta:
+          id: req_3537afc3ad0f47f99765368a9f21b405
+          created: 1759799800812
+          modified: 1759799802559
+          isPrivate: false
+          description: ""
+          sortKey: -1759797338837
+        method: PUT
+        body:
+          mimeType: application/json
+          text: ""
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/11.4.0
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://localhost:3000/produtos
+        name: New Request
+        meta:
+          id: req_80642aca28d14c9bb7b7a788b19fb98c
+          created: 1762218453917
+          modified: 1762218471045
+          isPrivate: false
+          description: ""
+          sortKey: -1762218453917
+        method: GET
+        headers:
+          - name: User-Agent
+            value: insomnia/11.6.1
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+  - name: Node API CRUD
+    meta:
+      id: fld_8b5e58a2442c4a9796a46a9f0de00b15
+      created: 1762217607291
+      modified: 1764022927432
+      sortKey: -1762217607291
+      description: ""
+    children:
+      - url: http://localhost:3000/produtos
+        name: Adicionar Produto
+        meta:
+          id: req_e3ee104546b44b5dbb4b8835b876d986
+          created: 1762217625819
+          modified: 1762381514463
+          isPrivate: false
+          description: ""
+          sortKey: -1762217625819
+        method: POST
+        body:
+          mimeType: application/json
+          text: |-
+            {
+            	"nome": "Notebook Dell Inspiron 16x",
+            	"preco": 1159.90
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/11.6.1
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://localhost:3000/produtos
+        name: Listar Produtos
+        meta:
+          id: req_34e9ee3657a14c2bbd418490c0665da9
+          created: 1762218483888
+          modified: 1762218536054
+          isPrivate: false
+          description: ""
+          sortKey: -1762217625919
+        method: GET
+        headers:
+          - name: User-Agent
+            value: insomnia/11.6.1
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://localhost:3000/produtos/6
+        name: Editar Produto
+        meta:
+          id: req_738566b6b0c74216bd6120b98017ae4f
+          created: 1762381451637
+          modified: 1762813052674
+          isPrivate: false
+          description: ""
+          sortKey: -1761007482403
+        method: PUT
+        body:
+          mimeType: application/json
+          text: |-
+            {
+            	"nome": "Ar condicionado EDITADO",
+            	"preco": 1200.90
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/11.6.1
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://localhost:3000/produtos/6
+        name: Buscar Produto por ID
+        meta:
+          id: req_b9770d805a9a47819a8b06933660b2b7
+          created: 1762384210729
+          modified: 1762813081587
+          isPrivate: false
+          description: ""
+          sortKey: -1762217625869
+        method: GET
+        headers:
+          - name: User-Agent
+            value: insomnia/11.6.1
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://localhost:3000/produtos/6
+        name: Deletar Produto por ID
+        meta:
+          id: req_173d43d3f4db4dafbc878b4e4a7cea3f
+          created: 1762384251106
+          modified: 1762813100514
+          isPrivate: false
+          description: ""
+          sortKey: -1762217625844
+        method: DELETE
+        headers:
+          - name: User-Agent
+            value: insomnia/11.6.1
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+  - name: API Financeiro
+    meta:
+      id: fld_8ed2b7ee6e2447039370f6db03473a82
+      created: 1764026154431
+      modified: 1764026154431
+      sortKey: -1764026154431
+      description: ""
+    children:
+      - url: http://localhost:3000/auth/registrar
+        name: Registrar Usuário
+        meta:
+          id: req_1a2e9ade84f14c878f49b8b58a191c39
+          created: 1764030241405
+          modified: 1764808185740
+          isPrivate: false
+          description: ""
+          sortKey: -1764030241405
+        method: POST
+        body:
+          mimeType: application/json
+          text: |-
+            {
+            	"nome": "Fernando Soares",
+            	"email": "fernando.smotta@gmail.com",
+            	"senha": "123456"
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/12.0.0
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://localhost:3000/auth/login
+        name: Login Usuário
+        meta:
+          id: req_9aec45572a884741ad810d0bb8f195c2
+          created: 1764030759856
+          modified: 1764808142177
+          isPrivate: false
+          description: ""
+          sortKey: -1763124347661
+        method: POST
+        body:
+          mimeType: application/json
+          text: |-
+            {
+            	"email": "fernando.smotta@gmail.com",
+              "senha": "123456"
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/12.0.0
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://localhost:3000/financeiro
+        name: Financeiro - Listar
+        meta:
+          id: req_ef211fa6219c4bbfa0c3e834dc36d359
+          created: 1764197660934
+          modified: 1764804376001
+          isPrivate: false
+          description: ""
+          sortKey: -1764197660934
+        method: GET
+        headers:
+          - name: User-Agent
+            value: insomnia/12.1.0
+            description: ""
+            disabled: false
+        authentication:
+          type: bearer
+          disabled: false
+          token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNzY0ODA0MzUxLCJleHAiOjE3NjQ4MDc5NTF9.qUE-IuZh4Xad-ZAdTw8-7MimKUAgrU-tmiw-vF-l7So
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://localhost:3000/financeiro
+        name: Financeiro - Cadastrar
+        meta:
+          id: req_4163664455a640ec8b1274269abea1da
+          created: 1764202203568
+          modified: 1764804368584
+          isPrivate: false
+          description: ""
+          sortKey: -1764113951169.5
+        method: POST
+        body:
+          mimeType: application/json
+          text: |
+            
+            {
+              "data": "2025-11-25",
+              "descricao": "Supermecado Zomper",
+              "formaPagamento": "pix",
+              "valor": 120.00,
+              "tipo": "saida",
+            	"categoriaId": 1
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/12.1.0
+            description: ""
+            disabled: false
+        authentication:
+          type: bearer
+          disabled: false
+          token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNzY0ODA0MzUxLCJleHAiOjE3NjQ4MDc5NTF9.qUE-IuZh4Xad-ZAdTw8-7MimKUAgrU-tmiw-vF-l7So
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://localhost:3000/categoria
+        name: Categoria - Cadastrar
+        meta:
+          id: req_480b53a3ec8c409aa582bd2ad451adb6
+          created: 1764634239049
+          modified: 1764804176706
+          isPrivate: false
+          description: ""
+          sortKey: -1764072096287.25
+        method: POST
+        body:
+          mimeType: application/json
+          text: |
+            
+            {
+              "nome": "Mercado",
+              "descricao": "Gastos com Alimentação"
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/12.1.0
+            description: ""
+            disabled: false
+        authentication:
+          type: bearer
+          disabled: false
+          token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NiwiaWF0IjoxNzY0ODAzNDk1LCJleHAiOjE3NjQ4MDcwOTV9.ovIhyG5e9ZpdhhZBbcSbuDYS_eAyHRKz7Wu2IwFbNbc
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://localhost:3000/categoria
+        name: Categoria - Listar
+        meta:
+          id: req_4a82d45ef1174787a167fb2b83abc947
+          created: 1764804397372
+          modified: 1764804404637
+          isPrivate: false
+          description: ""
+          sortKey: -1764051168846.125
+        method: GET
+        body:
+          mimeType: application/json
+          text: ""
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/12.1.0
+            description: ""
+            disabled: false
+        authentication:
+          type: bearer
+          disabled: false
+          token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NiwiaWF0IjoxNzY0ODAzNDk1LCJleHAiOjE3NjQ4MDcwOTV9.ovIhyG5e9ZpdhhZBbcSbuDYS_eAyHRKz7Wu2IwFbNbc
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+cookieJar:
+  name: Default Jar
+  meta:
+    id: jar_99d30891da4bdcebc63947a8fc17f076de878684
+    created: 1759797098035
+    modified: 1759797098035
+environments:
+  name: Base Environment
+  meta:
+    id: env_99d30891da4bdcebc63947a8fc17f076de878684
+    created: 1759797097967
+    modified: 1759797097967
+    isPrivate: false

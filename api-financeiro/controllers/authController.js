@@ -10,8 +10,12 @@ const { Usuario } = require("../models")
 
 // método para ser chamado pelo POST - Registrar Usuário
 exports.registrar = async (req, res) => {
-    const usuario = await Usuario.create(req.body)
-    res.status(201).json(usuario)
+    try {
+        const usuario = await Usuario.create(req.body)
+        res.status(201).json(usuario)
+    } catch(e) {
+        res.status(500).json({erro: "Ocorreu um erro no registro" + e})
+    }
 }
 
 exports.login = async (req, res) => {
