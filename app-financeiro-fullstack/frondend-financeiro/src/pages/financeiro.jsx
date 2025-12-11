@@ -209,9 +209,10 @@ export default function Financeiro() {
                   onChange={(e) => setFormaPagamento(e.target.value)}
                 >
                   <option value="pix">PIX</option>
-                  <option value="debito">Débito</option>
-                  <option value="credito">Crédito</option>
+                  <option value="débito">Débito</option>
+                  <option value="crédito">Crédito</option>
                   <option value="dinheiro">Dinheiro</option>
+                  <option value="boleto">Boleto</option>
                 </select>
 
                 {/* TIPO + CATEGORIA (mesma linha) */}
